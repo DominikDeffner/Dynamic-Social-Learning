@@ -4,7 +4,7 @@ This repository contains the scripts to reproduce all results and plots in
 
 ***Deffner, D., Kleinow, V. & McElreath, R. (submitted to Nature Human Behaviour): Dynamic Social Learning in Temporally and Spatially Variable Environments***
 
-Description of files:
+**Data file and data preparation**
 
 - "data.csv" contains full anonymized dataset from the experiment
 - "data_Ind.csv" contains data from individual learning control condition
@@ -16,7 +16,7 @@ Description of files:
  - EWA_MonotonicEfects.stan": Time-varying Multilevel Experience-weighted attraction model with monotonic effects
  - "EWA_GaussianProcess.stan": Time-varying Experience-weighted attraction model with Gaussian processes
  
-  **Plotting code**
+  **Plotting code for Figs.2-5**
   - "Fig2BehavioralResults.r"
   - "Fig3Contrasts.r
   - "Fig4MonotonicEffects.r"
