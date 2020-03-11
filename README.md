@@ -2,7 +2,7 @@
 
 This repository contains the scripts to reproduce all results and plots in 
 
-***Deffner, D., Kleinow, V. & McElreath, R. Dynamic Social Learning in Temporally and Spatially Variable Environments
+***Deffner, D., Kleinow, V. & McElreath, R. Dynamic Social Learning in Temporally and Spatially Variable Environments***
 
 Description of files:
 
