@@ -1,4 +1,4 @@
-# Dynamic Social-Learning
+# Dynamic Social Learning
 
 This repository contains anonymized experimental data and all scripts to reproduce results and plots in 
 
