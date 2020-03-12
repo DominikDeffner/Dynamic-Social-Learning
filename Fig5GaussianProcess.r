@@ -1,7 +1,7 @@
 
-setwd("C:/Users/dominik_deffner/Documents/GitHub/Experience-Social-Learning")
+#Script to reproduce Fig. 5 - Gaussian Processes
 
-m <- extract.samples(m8)
+m <- extract.samples(m4)
 
 Upper_M_mat_sigma <- c()
 Mean_M_mat_sigma <- c()
@@ -22,8 +22,6 @@ for (i in 1:20) {
 
 
 #GP curves for f
-
-
 Upper_m_Mat_f <- c()
 Mean_m_Mat_f <- c()
 Lower_m_Mat_f <- c()
@@ -97,7 +95,6 @@ for (i in 1:20) {
 
 #GP curves for L
 
-
 Upper_m_Mat_L <- c()
 Mean_m_Mat_L <- c()
 Lower_m_Mat_L <- c()
@@ -120,9 +117,6 @@ x <- seq(from=0, to=1, by=0.2) # fake data
 col.pal <- brewer.pal(length(x), "Dark2") #create a pallette which you loop over for corresponding values
 
 
-
-graphics.off()
-png("Fig5GP.png", res = 1600, height = 15, width = 22, units = "cm")
 par(mfrow = c(2,3), 
     mar=c(1,4,2,0.4), 
     oma=c(3,0,0,0))
@@ -184,11 +178,6 @@ mtext(side = 2, line = 2.2 , expression(paste("Exploration rate  ", italic(lambd
 legend("topleft", "F", cex=1.1, bty="n")
 
 
-
-
-
-
 mtext(side = 1, line = 1.4 , "Round after migration", outer = TRUE, cex = 0.9)
 
 
-dev.off()

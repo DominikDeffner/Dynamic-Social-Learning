@@ -1,4 +1,5 @@
 
+#Script to reproduce Fig. 2 - Behavioral Results
 
 #Proportion Correct
 # Spatial
@@ -75,9 +76,6 @@ x <- seq(from=0, to=1, by=0.2) # fake data
 col.pal <- brewer.pal(length(x), "Dark2") #create a pallette which you loop over for corresponding values
 
 
-
-graphics.off()
-png("Fig2BehavioralResults.png", res = 1600, height = 16, width = 16, units = "cm")
 par(mfrow = c(2,2), 
     mar= c(1,1,2,2), 
     oma =c(3,3,1,0))
@@ -91,7 +89,6 @@ abline(h = 0.25, lty=2)
 legend("topleft", "A", cex=1.1, bty="n")
 text(10, 0.27, "Chance level", col="black", cex = 0.8)
 
-
 plot(meanCorrectperTimeHard, type="l", lwd=2, lty=2, ylim=c(0.1,0.75), ylab="",xlab="", col = col.pal[1])
 arrows(1:25,meanCorrectperTimeHard-SECorrectperTimeHard,1:25,meanCorrectperTimeHard+SECorrectperTimeHard, code=3, lwd=1, length=0.02, angle = 90, col = col.pal[1])
 par(new=TRUE)
@@ -100,31 +97,23 @@ arrows(1:25,meanCorrectperTimeEasy-SECorrectperTimeEasy,1:25,meanCorrectperTimeE
 abline(h = 0.25, lty=2)
 legend("topleft", "B", cex=1.1, bty="n")
 text(12.5, 0.27, "Chance level", col="black", cex = 0.8)
-
 legend("bottomright", c("Easy Phases", "Hard Phases"), col = c(col.pal[2],col.pal[1]), lty=c(1,2), lwd=2, bty ="n", cex=0.9)
 
 plot(meanChoiceperExp, type="l", lwd=2, lty=2, ylim=c(0.3,1), ylab="Proportion ",xlab="", col = col.pal[3])
 arrows(1:20,meanChoiceperExp-SEChoiceperExp,1:20,meanChoiceperExp+SEChoiceperExp, code=3, lwd=1, length=0.02, angle = 90, col = col.pal[3])
 par(new=TRUE)
-
 plot(meanExpperExp, type="l",lwd=2,lty=1,  ylim=c(0.3,1), ylab=" ", xlab="", col = col.pal[6])
 arrows(1:20,meanExpperExp-SEExpperExp,1:20,meanExpperExp+SEExpperExp, code=3, lwd=1, length=0.02, angle = 90, col = col.pal[6])
 legend("topleft", "C", cex=1.1, bty="n")
 
-
-
 plot(meanChoiceperTime, type="l", lwd=2, lty=2, ylim=c(0.3,1), ylab="",xlab="", col = col.pal[3])
 arrows(1:25,meanChoiceperTime-SEChoiceperTime,1:25,meanChoiceperTime+SEChoiceperTime, code=3, lwd=1, length=0.02, angle = 90, col = col.pal[3])
 par(new=TRUE)
-
 plot(meanExpperTime, type="l",lwd=2,lty=1,  ylim=c(0.3,1), ylab=" ", xlab="", col = col.pal[6])
 arrows(1:25,meanExpperTime-SEExpperTime,1:25,meanExpperTime+SEExpperTime, code=3, lwd=1, length=0.02, angle = 90, col = col.pal[6])
 legend("topleft", "D", cex=1.1, bty="n")
 
-
 legend("bottomright", c("Choice Boxes", "Experience Boxes"), col = c(col.pal[3],col.pal[6]),lty = c(2,1), lwd=2, bty ="n", cex=0.9)
 mtext("Round after change", side = 1, outer = TRUE, line = 2, cex = 1)
-
 mtext("Proportion boxes viewed                   Proportion optimal choices", side = 2, outer = TRUE, line = 2, cex = 1)
 
-dev.off()

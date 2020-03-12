@@ -1,7 +1,8 @@
 
+#Script to reproduce Fig. 4 - Monotonic Effects
+
 library(rethinking)
-m <- extract.samples(m4)
-#Monotonic effects
+m <- extract.samples(m3)
 
 #Sigma
 Delta_sigmas <- c()
@@ -120,23 +121,10 @@ for (j in 1:200) {
 Mean_m_Mat_L <- apply(m_Mat_L,2,mean)
 
 
-
-
-
-
-
-
-
 #color stuff
 require(RColorBrewer)#load package
 x <- seq(from=0, to=1, by=0.2) # fake data
 col.pal <- brewer.pal(length(x), "Dark2") #create a pallette which you loop over for corresponding values
-
-
-
-graphics.off()
-
-png("Fig4MonotonicEffectsNEW.png", res = 1200, height = 15, width = 22, units = "cm")
 
 
 par(mfrow= c(2,3), 
@@ -200,4 +188,3 @@ legend("topleft", "F", cex=1.1, bty="n")
 
 mtext(side = 1, line = 1.4 , "Round after migration", outer = TRUE, cex = 0.9)
 
-dev.off()
