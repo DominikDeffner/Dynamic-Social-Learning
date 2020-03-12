@@ -14,7 +14,7 @@ This repository contains anonymized experimental data and all scripts to reprodu
  **Stan models**
  - "EWA_baseline_multilevel.stan": Baseline Multilevel Experience-weighted attraction model.
  - "EWA_contrasts.stan": Spatial vs. Temporal Changes: Experience-weighted attraction model with dummy variables to compute. contrasts.   
- - EWA_MonotonicEfects.stan": Time-varying Multilevel Experience-weighted attraction model with monotonic effects.
+ - EWA_MonotonicEffects.stan": Time-varying Multilevel Experience-weighted attraction model with monotonic effects.
  - "EWA_GaussianProcess.stan": Time-varying Experience-weighted attraction model with Gaussian processes.
  
   **Plotting code for Figs.2-5**
