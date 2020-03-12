@@ -247,7 +247,7 @@ for (i in 1:nrow(d)){
  m2 <- stan( file="EWA_contrasts.stan" ,data=dat , chains=5, cores=5, iter = 5000, control = list(adapt_delta=0.95, max_treedepth = 13))    
  
  # Time-varying Multilevel Experience-weighted attraction model with monotonic effects
- m3 <- stan( file="EWA_MonotonicEfects.stan" ,data=dat , chains=5, cores=5, iter = 5000, control = list(adapt_delta=0.95, max_treedepth = 13)) 
+ m3 <- stan( file="EWA_MonotonicEffects.stan" ,data=dat , chains=5, cores=5, iter = 5000, control = list(adapt_delta=0.95, max_treedepth = 13)) 
  
  # Time-varying Experience-weighted attraction model with Gaussian processes
  m4 <- stan( file="EWA_GaussianProcess.stan" , data=dat , chains=5, cores=5, iter = 5000, control = list(adapt_delta=0.95, max_treedepth = 13))  

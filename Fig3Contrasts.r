@@ -1,8 +1,10 @@
 
 # Script for Fig. 3 - Contrast between temporal and spatial changes
 
-
+# Extract samples from corresponding model
 mCont <- extract.samples(m2)
+
+
 sigmaTemp <- inv_logit( mCont$b0_sigma + mCont$btemp_sigma )
 sigmaSpat <- inv_logit( mCont$b0_sigma + mCont$bspat_sigma )
 sigmaCont <- sigmaSpat-sigmaTemp

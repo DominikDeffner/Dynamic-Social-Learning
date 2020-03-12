@@ -1,27 +1,33 @@
 
-# Code for posterior simulations
-setwd("C:/Users/dominik_deffner/Documents/GitHub/Experience-Social-Learning")
-load("~/GitHub/Experience-Social-Learning/MultilevelBaseline")
+# Code for posterior simulations. We sample new participants from estimated distribution of varying effects
 
+
+`%not in%` <- function (x, table) is.na(match(x, table, nomatch=NA_integer_))
 library(mvtnorm)
+library(rethinking)
+library(truncnorm)
+
+N_sim = 10 #Number of simulations
+
+
+#1. Baseline model without time-varying parameters
 
 #Sample strategies from posteriors
+
+#Extract samples from baseline model
+samp <- extract.samples(m1)
+
+
 #Compute correlation matrix from Cholesky factors
-
-samp <- extract.samples(m)
-
-
 Correlations <- array(numeric(),c(10000,6,6))
-
 for (i in 1:10000) {
   Correlations[i,,] <- samp$Rho_ID[i,,] %*% t(samp$Rho_ID[i,,])
 }
 
-
 sigma_id <- apply(samp$sigma_ID, 2, mean)
 Corr_matrix <- apply( Correlations , c(2,3), mean)
 
-
+# Compute variance - covariance matrix from variances and correlation matrix
 S <- diag(sigma_id) %*%  Corr_matrix  %*% diag(sigma_id)
 
 
@@ -33,20 +39,8 @@ Kappa <- mean(samp$logit_kappa)
 Phi <- mean(samp$logit_phi)
 
 
-
-
-
-
-
-
-
-# for utilities
-
-`%not in%` <- function (x, table) is.na(match(x, table, nomatch=NA_integer_))
-
-
 #Simulation function
-Sim_fct <- function(Nsim =5, 
+Sim_fct <- function(Nsim = N_sim, 
                     Tmax = 100,
                     Group_size = 4,
                     N_group= 2 ,
@@ -318,19 +312,12 @@ Sim_fct <- function(Nsim =5,
 }#sim_funct
 
 
-
-
 d <- Sim_fct() 
-
 
 All_d <- d
 
-N_sim = 5
-
-
 meanCorrectperExpHard <- list()
 meanCorrectperExpEasy <- list()
-
 meanCorrectperTimeHard <- list()
 meanCorrectperTimeEasy <- list()
 
@@ -342,10 +329,8 @@ for (x in 1:N_sim) {
   
   
   d$id <- (d$Session_ID - 1)*8 + d$id
-  
   d$Hard[d$SD_Payoff==3] <- 1
   d$Hard[d$SD_Payoff==1.5] <- 0
-  
   d$TimeSinceChange <- NA
   d$ExpStable <- NA
   Times_Env_Change <- c(25,50,75)
@@ -397,11 +382,8 @@ for (x in 1:N_sim) {
   
 }
 
-
-
 meanCorrectExpHard <- c()
 meanCorrectExpEasy <- c()
-
 SDCorrectExpHard <- c()
 SDCorrectExpEasy <- c()
 
@@ -418,7 +400,6 @@ for (x in 1:20) {
   SDCorrectExpHard[x] <- sd(p)
   SDCorrectExpEasy[x] <- sd(q)
 }
-
 
 
 meanCorrectTimeHard <- c()
@@ -478,15 +459,13 @@ text(12.5, 0.27, "Chance level", col="black", cex = 0.8)
 
 
 
-load("~/GitHub/Experience-Social-Learning/MonotonicAll2502")
 
-# Code for posterior simulations
 
-library(mvtnorm)
-library(rethinking)
-library(truncnorm)
+# 2. Monotonic-effects model with time-varying parameters
 
-samp <- extract.samples(m)
+
+
+samp <- extract.samples(m3)
 
 #Sample strategies from posteriors
 #Compute correlation matrix from Cholesky factors

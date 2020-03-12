@@ -2,6 +2,8 @@
 #Script to reproduce Fig. 4 - Monotonic Effects
 
 library(rethinking)
+
+#Extract samples
 m <- extract.samples(m3)
 
 #Sigma
@@ -79,8 +81,6 @@ for (j in 1:200) {
   }
 }
 Mean_m_Mat_kappa <- apply(m_Mat_kappa,2,mean)
-
-
 
 
 #phi

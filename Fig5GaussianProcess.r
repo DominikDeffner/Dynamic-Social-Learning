@@ -1,6 +1,7 @@
 
 #Script to reproduce Fig. 5 - Gaussian Processes
 
+#Extract samples
 m <- extract.samples(m4)
 
 Upper_M_mat_sigma <- c()
