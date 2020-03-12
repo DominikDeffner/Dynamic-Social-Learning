@@ -1,12 +1,12 @@
-# Dynamic-Social-Learning
+# Dynamic Social-Learning
 
-This repository contains the scripts to reproduce all results and plots in 
+This repository contains anonymized experimental data and all scripts to reproduce results and plots in 
 
 ***Deffner, D., Kleinow, V. & McElreath, R. (submitted to Nature Human Behaviour): Dynamic Social Learning in Temporally and Spatially Variable Environments***
 
 **Data files and preparation script**
 
-- "data.csv" contains full anonymized dataset from the experiment
+- "data.csv" contains full anonymized dataset from the social learning experiment
 - "data_Ind.csv" contains data from individual learning control condition
 - "Data_prep.r" loads the data and prepares them for the stan models
 
