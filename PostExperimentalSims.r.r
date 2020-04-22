@@ -430,8 +430,7 @@ require(RColorBrewer)#load package
 x <- seq(from=0, to=1, by=0.2) # fake data
 col.pal <- brewer.pal(length(x), "Dark2") #create a pallette which you loop over for corresponding values
 
-graphics.off()
-png("FigPostsims2.png", res = 1600, height = 16, width = 16, units = "cm")
+
 par(mfrow = c(2,2), 
     mar= c(1,1,2,2), 
     oma =c(3,3,1,0))
@@ -1026,5 +1025,4 @@ legend("bottomright", c("Easy Phases", "Hard Phases"), col = c(col.pal[2],col.pa
 mtext("Round after change", side = 1, outer = TRUE, line = 2, cex = 1)
 
 mtext("Proportion optimal choices", side = 2, outer = TRUE, line = 2, cex = 1)
-dev.off()
 

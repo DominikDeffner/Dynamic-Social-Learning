@@ -1,19 +1,15 @@
-// Monotonic effect on everything plus varying effects
+
+// Time-varying Learning Parameters: Monotonic Effects model
 
 
 data{
 int N;
-int N_id;           // number of unique individuals
-int sid[N];          // id within session
-int Session_ID[N];
-int id[N];         // unique id across all sessions
+int N_id;
+int id[N];
 int Round[N];
 int ChoiceSelf[N];
 real Payoff[N];
 int ExperienceSelf[N];
-int Phase[N];
-int TempChange[N];
-int TimeSinceChange[N];
 
 matrix[N,4] nmat_obs;
 matrix[N,3] age_models_obs;
@@ -51,31 +47,15 @@ simplex[19] delta_phi;
 
 // Varying effects clustered on individual
 matrix[12,N_id] z_ID;
-vector<lower=0>[12] sigma_ID;       //SD of parameters among individuals
+vector<lower=0>[12] sigma_ID;
 cholesky_factor_corr[12] Rho_ID;
 
 }
 
 transformed parameters{
-matrix[N_id,12] v_ID; // varying effects on stuff
+matrix[N_id,12] v_ID;
 v_ID = ( diag_pre_multiply( sigma_ID , Rho_ID ) * z_ID )';
 }
-
-
-//1  logit_sigma_first;
-//2 logit_sigma_last;
-
-//3 beta_first;
-//4 beta_last;
-
-//5 log_f_first;
-//6 log_f_last;
-
-//7 logit_kappa_first;
-//8 logit_kappa_last;
-
-//9 logit_phi;
-//10 log_L;
 
 
 model{
@@ -169,10 +149,6 @@ for ( i in 1:N ) {
   real L_last;
   real L;
 
-
-  //if ( ExperienceSelf[i]==1 ) A[id[i],1:4] = rep_vector(0,4)';
-//  if ( TempChange[i]==1 ) A[id[i],1:4] = rep_vector(0,4)';
-
   // first, what is log-prob of observed choice
   L_first = exp( log_L_first + v_ID[id[i],9] );
   L_last = exp( log_L_last + v_ID[id[i],10] );
@@ -233,7 +209,6 @@ for ( i in 1:N ) {
   ChoiceSelf[i] ~ categorical( p );
 
   // second, update attractions conditional on observed choice
-
   pay[1:4] = rep_vector(0,4);
   pay[ ChoiceSelf[i] ] = Payoff[i];
 

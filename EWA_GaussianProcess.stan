@@ -1,4 +1,6 @@
-// Full Gaussian process model
+
+
+// Time-varying Learning Parameters: Gaussian process model
 
 
 //Function for Gaussian process kernel
@@ -20,19 +22,13 @@ functions{
 
 data{
 int N;
-int N_id;           // number of unique individuals
-int sid[N];          // id within session
-int Session_ID[N];
-int id[N];         // unique id across all sessions
+int N_id;          
+int id[N];
 int Round[N];
 int ChoiceSelf[N];
 real Payoff[N];
 int ExperienceSelf[N];
-int Phase[N];
-int TempChange[N];
-int TimeSinceChange[N];
-int spat[N];
-int temp[N];
+
 
 matrix[20,20] expmat;
 matrix[N,4] nmat_obs;
@@ -44,27 +40,26 @@ parameters{
 
     real mean_lambda;
     real mean_phi;
-    real mean_sigma; // mean weight of social info for average level of experience
-    real mean_beta;  // mean strength of age bias for average level of experience
-    real mean_f; // meanstrength of conformity
-    real mean_kappa; // weight of age bias
+    real mean_sigma;
+    real mean_beta;
+    real mean_f;
+    real mean_kappa;
 
-    //Gaussian process stuff; on the log/logit scale to make them positive/between 0-1 in the end
-    real log_etasq_sigma;   // max covariance in Gaussian process
-    real log_rhosq_sigma;   // rate of decline
-    real log_sigmasq_sigma; // additional variance of main diagonal
+    real log_etasq_sigma;
+    real log_rhosq_sigma;
+    real log_sigmasq_sigma;
 
-    real log_etasq_beta;   // max covariance in Gaussian process
-    real log_rhosq_beta;   // rate of decline
-    real log_sigmasq_beta; // additional variance of main diagonal
+    real log_etasq_beta;
+    real log_rhosq_beta;
+     real log_sigmasq_beta;
 
-    real log_etasq_f;   // max covariance in Gaussian process
-    real log_rhosq_f;   // rate of decline
-    real log_sigmasq_f; // additional variance of main diagonal
+    real log_etasq_f;
+    real log_rhosq_f;
+    real log_sigmasq_f;
 
-    real log_etasq_kappa;   // max covariance in Gaussian process
-    real log_rhosq_kappa;   // rate of decline
-    real log_sigmasq_kappa; // additional variance of main diagonal
+    real log_etasq_kappa;
+    real log_rhosq_kappa;
+    real log_sigmasq_kappa;
 
     real log_rhosq_phi;
     real log_etasq_phi;
@@ -74,24 +69,24 @@ parameters{
     real log_etasq_L;
     real log_sigmasq_L;
 
-    vector[20] dev_sigma;   // Average deviations for levels of experience
-    vector[20] dev_beta;   // Average deviations for levels of experience
-    vector[20] dev_f;   // Average deviations for levels of experience
-    vector[20] dev_kappa;   // Average deviations for levels of experience
-    vector[20] dev_L;   // Average deviations for levels of experience
-    vector[20] dev_phi;   // Average deviations for levels of experience
+    vector[20] dev_sigma;
+    vector[20] dev_beta;
+    vector[20] dev_f;
+    vector[20] dev_kappa;
+    vector[20] dev_L;
+    vector[20] dev_phi;
 }
 
 model{
 
     matrix[N_id,4] A; // attraction matrix
 
-    matrix[20, 20] Kmat_sigma;  // Array of N_id 20 x 20 matrices to store person specific covariances
-    matrix[20, 20] Kmat_beta;  // Array of N_id 20 x 20 matrices to store person specific covariances
-    matrix[20, 20] Kmat_f;  // Array of N_id 20 x 20 matrices to store person specific covariances
-    matrix[20, 20] Kmat_kappa;  // Array of N_id 20 x 20 matrices to store person specific covariances
-    matrix[20, 20] Kmat_L;  // Array of N_id 20 x 20 matrices to store person specific covariances
-    matrix[20, 20] Kmat_phi;  // Array of N_id 20 x 20 matrices to store person specific covariances
+    matrix[20, 20] Kmat_sigma;
+    matrix[20, 20] Kmat_beta;
+    matrix[20, 20] Kmat_f;
+    matrix[20, 20] Kmat_kappa;
+    matrix[20, 20] Kmat_L;
+    matrix[20, 20] Kmat_phi;
 
     mean_sigma ~ normal(0,1);
     mean_beta ~ normal(0,1);

@@ -2,19 +2,23 @@
 // This model includes varying (aka random) effects on all parameters (no time-varying parameters)
 
 // Stan models need a data, parameter and model block.
-// Here we define name and type of the variables clustered
+
+// Here we define name and type of the variables
 
 data{
-int N;
-int N_id;
-int id[N];
-int Round[N];
-int ChoiceSelf[N];
-real Payoff[N];
-int ExperienceSelf[N];
-matrix[N,4] nmat_obs;
-matrix[N,3] age_models_obs;
-matrix[N,3] choice_models_obs;
+int N;                 // Number of observations
+int N_id;              // Number of individuals
+int id[N];             // Individual ID
+int Round[N];          // Round/Trial Number (1-100)
+int ChoiceSelf[N];     // Crop Choice of Ego
+real Payoff[N];        // Payoff/Returns for Ego
+int ExperienceSelf[N];  // Experience of Ego
+
+// "_obs" indicates that variables take mouse tracking data into account, i.e.
+// variables only contain social information that ego actually saw
+matrix[N,4] nmat_obs;          // Matrix with frequency of 4 options among models
+matrix[N,3] age_models_obs;    //Matrix with experiences of 3 models
+matrix[N,3] choice_models_obs; //Matrix with choices of 3 models
 }
 
 parameters{
@@ -124,4 +128,3 @@ for ( i in 1:N ) {
 }
 //i
 }
-

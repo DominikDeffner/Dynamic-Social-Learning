@@ -6,8 +6,6 @@ library(readxl)
 library(tidyverse)
 library(rethinking)
 
-setwd("C:/Users/dominik_deffner/Documents/GitHub/Dynamic-Social-Learning")
-
 #Load data
 d <- read_csv("data.csv")
 

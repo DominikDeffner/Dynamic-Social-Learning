@@ -1,19 +1,15 @@
-// Varying effects on everything (no time-varying parameters)
+
+// Model with dummy-coded predictors for comparison between temporal and spatial changes
 
 
 data{
 int N;
-int N_id;           // number of unique individuals
-int sid[N];          // id within session
-int Session_ID[N];
-int id[N];         // unique id across all sessions
+int N_id;
+int id[N];
 int Round[N];
 int ChoiceSelf[N];
 real Payoff[N];
 int ExperienceSelf[N];
-int Phase[N];
-int TempChange[N];
-int TimeSinceChange[N];
 int spat[N];
 int temp[N];
 
@@ -105,9 +101,6 @@ for ( i in 1:N ) {
   real f;
   real L;
   real phi;
-
-  //if ( TempChange[i]==1 ) A[id[i],1:4] = rep_vector(0,4)';
-  //if ( ExperienceSelf[i]==1 ) A[id[i],1:4] = rep_vector(0,4)';
 
   // first, what is log-prob of observed choice
   L =  exp(log_L + v_ID[id[i],1]);
