@@ -27,3 +27,8 @@ This repository contains anonymized experimental data and all scripts to reprodu
   **Simulation code**
 
   "PostExperimentalSims.r" contains simulation code for post-hoc simulations from model outputs.
+  
+  
+   **Preregistration**
+
+  Simulation and modeling code accopanying preregistration can be found here: https://github.com/DominikDeffner/Social-Learning-Experiments-in-Experience-Structured-Groups
