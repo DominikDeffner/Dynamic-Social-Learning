@@ -2,7 +2,7 @@
 
 This repository contains anonymized experimental data and all scripts to reproduce results and plots in 
 
-***Deffner, D., Kleinow, V. & McElreath, R. (submitted to Nature Human Behaviour): Dynamic Social Learning in Temporally and Spatially Variable Environments***
+***Deffner, D., Kleinow, V. & McElreath, R. (submitted to Royal Society Open Science): Dynamic Social Learning in Temporally and Spatially Variable Environments***
 
 **Data files and preparation script**
 
@@ -12,8 +12,8 @@ This repository contains anonymized experimental data and all scripts to reprodu
 - "Data_prep.r" loads the data and prepares them for the stan models. The final product is a list with all relevant variables as required by stan. Processing the mouse tracking data might take a couple of minutes.
 
  **Stan models**
- - "EWA_baseline_multilevel.stan": Baseline Multilevel Experience-weighted attraction model.
- - "EWA_contrasts.stan": Spatial vs. Temporal Changes: Experience-weighted attraction model with dummy variables to compute. contrasts.   
+ - "EWA_baseline_multilevel.stan": Baseline Multilevel Experience-weighted attraction model. This model code is heavily commented with detailed description of all steps. If you want to delve deeper into the modeling, you should probably start here.
+ - "EWA_contrasts.stan": Spatial vs. Temporal Changes: Experience-weighted attraction model with dummy variables to compute contrasts.   
  - EWA_MonotonicEffects.stan": Time-varying Multilevel Experience-weighted attraction model with monotonic effects.
  - "EWA_GaussianProcess.stan": Time-varying Experience-weighted attraction model with Gaussian processes.
  
@@ -27,3 +27,8 @@ This repository contains anonymized experimental data and all scripts to reprodu
   **Simulation code**
 
   "PostExperimentalSims.r" contains simulation code for post-hoc simulations from model outputs.
+  
+  
+   **Preregistration**
+
+  Simulation and modeling code accopanying preregistration can be found here: https://github.com/DominikDeffner/Social-Learning-Experiments-in-Experience-Structured-Groups
