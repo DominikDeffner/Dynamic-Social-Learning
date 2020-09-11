@@ -5,6 +5,7 @@ This repository contains anonymized experimental data and all scripts to reprodu
 ***Deffner, D., Kleinow, V. & McElreath, R. (submitted to Royal Society Open Science): Dynamic Social Learning in Temporally and Spatially Variable Environments***
 
 **Experimental software**
+
 The folder "oTree code" contains full experimental software needed to run the experiment including code for mouse tracking. 
 
 
