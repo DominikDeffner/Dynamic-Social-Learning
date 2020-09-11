@@ -1,0 +1,332 @@
+{% extends "global/Page.html" %}
+
+{% load static otree %}
+
+
+{% block title %}
+    Runde {{ subsession.round_number }} von {{ Constants.num_rounds }}
+
+
+<br>
+
+Sie befinden sich derzeit in Region {{group.id_in_subsession}}
+{% endblock %}
+
+{% block content %}
+<body onLoad="timefunction('onload','body','body')">
+
+{% if group.id_in_subsession == 1 %}
+<body style="background-color: rgb(204, 255, 204);">
+{% endif %}
+
+{% if group.id_in_subsession == 2 %}
+<body style="background-color: rgb(204, 255, 255);">
+{% endif %}
+
+
+<table width="1000" height="550">
+	<tr>
+		<td></td>
+		<th>  <font size="+2">Ich</font></th>
+		<th>  <font size="+2">Nachbar</font></th>
+		<th>  <font size="+2">Nachbar</font></th>
+		<th>  <font size="+2">Nachbar</font></th>
+	</tr>
+	<tr>
+
+	<tr>
+	<th><font size="+2">Wahl</font></th></th>
+
+
+    <td><DIV ID="CropSelf_cont" style="position: relative; height: 150px; width: 150px;">
+        <DIV ID="CropSelf_txt">
+            <TABLE>
+                <TD ID="CropSelf_td" align=center valign=center width=150 height=150
+                    class="actTD"><img src="{% static crop_choice_agent %}" width="149"
+                                       height="149"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="CropSelf_box"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 150px; width: 150px; clip: rect(0px 150px 150px 0px); z-index: 1;">
+            <TABLE>
+                <TD ID="CropSelf_tdbox" align=center valign=center width=150 height=150><img
+                        src="{% static 'Black_screen.jpg' %}" width="150" height="150"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="CropSelf_img"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 150px; width: 150px; z-index: 1;">
+            <A HREF="javascript:void(0);" NAME="CropSelf" onMouseOver="ShowCont('CropSelf','info',event)" onMouseOut="HideCont('CropSelf',event)">
+                <img NAME="CropSelf" src="{% static 'transp.gif' %}" border=0 width=150
+                height=150></A>
+        </DIV>
+    </DIV>
+    </td>
+
+    <td> <DIV ID="Crop1_cont" style="position: relative; height: 150px; width: 150px;">
+        <DIV ID="Crop1_txt">
+            <TABLE>
+                <TD ID="Crop1_td" align=center valign=center width=150 height=150
+                    class="actTD"><img src="{% static crop_choice_partner1 %}" width="149"
+                                       height="149"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Crop1_box"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 150px; width: 150px; clip: rect(0px 150px 150px 0px); z-index: 1;">
+            <TABLE>
+                <TD ID="Crop1_tdbox" align=center valign=center width=150 height=150><img
+                        src="{% static 'Black_screen.jpg' %}" width="150" height="150"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Crop1_img"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 145px; width: 145px; z-index: 1;">
+            <A HREF="javascript:void(0);" NAME="Crop1" onMouseOver="ShowCont('Crop1','info',event)" onMouseOut="HideCont('Crop1',event)">
+                <img NAME="Crop1" src="{% static 'transp.gif' %}" border=0 width=150
+                height=150></A>
+        </DIV>
+        </DIV>
+    </td>
+
+    <td><DIV ID="Crop2_cont" style="position: relative; height: 150px; width: 150px;">
+        <DIV ID="Crop2_txt">
+            <TABLE>
+                <TD ID="Crop2_td" align=center valign=center width=150 height=150
+                    class="actTD"><img src="{% static crop_choice_partner2 %}" width="149"
+                                       height="149"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Crop2_box"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 150px; width: 150px; clip: rect(0px 150px 150px 0px); z-index: 1;">
+            <TABLE>
+                <TD ID="Crop2_tdbox" align=center valign=center width=150 height=150><img
+                        src="{% static 'Black_screen.jpg' %}" width="150" height="150"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Crop2_img"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 145px; width: 145px; z-index: 1;">
+            <A HREF="javascript:void(0);" NAME="Crop2" onMouseOver="ShowCont('Crop2','info',event)" onMouseOut="HideCont('Crop2',event)">
+                <img NAME="Crop2" src="{% static 'transp.gif' %}" border=0 width=150
+                height=150></A>
+        </DIV>
+    </DIV>
+    </td>
+
+    <td><DIV ID="Crop3_cont" style="position: relative; height: 150px; width: 150px;">
+        <DIV ID="Crop3_txt">
+            <TABLE>
+                <TD ID="Crop3_td" align=center valign=center width=150 height=150
+                    class="actTD"><img src="{% static crop_choice_partner3 %}" width="149"
+                                       height="149"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Crop3_box"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 150px; width: 150px; clip: rect(0px 150px 150px 0px); z-index: 1;">
+            <TABLE>
+                <TD ID="Crop3_tdbox" align=center valign=center width=150 height=150><img
+                        src="{% static 'Black_screen.jpg' %}" width="150" height="150"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Crop3_img"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 145px; width: 145px; z-index: 1;">
+            <A HREF="javascript:void(0);" NAME="Crop3" onMouseOver="ShowCont('Crop3','info',event)" onMouseOut="HideCont('Crop3',event)">
+                <img NAME="Crop3" src="{% static 'transp.gif' %}" border=0 width=150
+                height=150></A>
+        </DIV>
+    </DIV>
+    </td>
+	</tr>
+	<tr>
+
+	<th><font size="+2">Erfahrung</font></th></th>
+
+        <td>
+
+<DIV ID="ExpSelf_cont"  style="position: relative; height: 150px; width: 150px;">
+        <DIV ID="ExpSelf_txt">
+            <TABLE border= 2>
+                <TD ID="ExpSelf_td" align=center valign=center width=150 height=150
+                    class="actTD"> <font size="+2">{{experience_agent}}. Runde</font>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="ExpSelf_box"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 150px; width: 150px; clip: rect(0px 150px 150px 0px); z-index: 1;">
+            <TABLE>
+                <TD ID="ExpSelf_tdbox" align=center valign=center width=150 height=150><img
+                        src="{% static 'Black_screen.jpg' %}" width="150" height="150"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="ExpSelf_img"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 145px; width: 145px; z-index: 1;">
+            <A HREF="javascript:void(0);" NAME="ExpSelf" onMouseOver="ShowCont('ExpSelf','info',event)" onMouseOut="HideCont('ExpSelf',event)">
+                <img NAME="ExpSelf" src="{% static 'transp.gif' %}" border=0 width=150
+                height=150></A>
+        </DIV>
+    </DIV>
+
+        </td>
+        <td>
+
+<DIV ID="Exp1_cont"  style="position: relative; height: 150px; width: 150px;">
+        <DIV ID="Exp1_txt">
+            <TABLE border= 2>
+                <TD ID="Exp1_td" align=center valign=center width=150 height=150
+                    class="actTD"> <font size="+2">{{experience_1}}. Runde</font>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Exp1_box"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 150px; width: 150px; clip: rect(0px 150px 150px 0px); z-index: 1;">
+            <TABLE>
+                <TD ID="Exp1_tdbox" align=center valign=center width=150 height=150><img
+                        src="{% static 'Black_screen.jpg' %}" width="150" height="150"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Exp1_img"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 145px; width: 145px; z-index: 1;">
+            <A HREF="javascript:void(0);" NAME="Exp1" onMouseOver="ShowCont('Exp1','info',event)" onMouseOut="HideCont('Exp1',event)">
+                <img NAME="Exp1" src="{% static 'transp.gif' %}" border=0 width=150
+                height=150></A>
+        </DIV>
+    </DIV>
+
+        </td>
+        <td>
+
+<DIV ID="Exp2_cont"  style="position: relative; height: 150px; width: 150px;">
+        <DIV ID="Exp2_txt">
+            <TABLE border= 2>
+                <TD ID="Exp2_td" align=center valign=center width=150 height=150
+                    class="actTD"> <font size="+2">{{experience_2}}. Runde</font>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Exp2_box"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 150px; width: 150px; clip: rect(0px 150px 150px 0px); z-index: 1;">
+            <TABLE>
+                <TD ID="Exp2_tdbox" align=center valign=center width=150 height=150><img
+                        src="{% static 'Black_screen.jpg' %}" width="150" height="150"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Exp2_img"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 145px; width: 145px; z-index: 1;">
+            <A HREF="javascript:void(0);" NAME="Exp2" onMouseOver="ShowCont('Exp2','info',event)"
+               onMouseOut="HideCont('Exp2',event)">
+                <img NAME="Exp2" src="{% static 'transp.gif' %}" border=0 width=150
+                height=150></A>
+        </DIV>
+    </DIV>
+
+        </td>
+        <td>
+
+<DIV ID="Exp3_cont"  style="position: relative; height: 150px; width: 150px;">
+        <DIV ID="Exp3_txt">
+            <TABLE border= 2>
+                <TD ID="Exp3_td" align=center valign=center width=150 height=150
+                    class="actTD"> <font size="+2">{{experience_3}}. Runde</font>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Exp3_box"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 150px; width: 150px; clip: rect(0px 150px 150px 0px); z-index: 1;">
+            <TABLE>
+                <TD ID="Exp3_tdbox" align=center valign=center width=150 height=150><img
+                        src="{% static 'Black_screen.jpg' %}" width="150" height="150"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="Exp3_img"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 145px; width: 145px; z-index: 1;">
+            <A HREF="javascript:void(0);" NAME="Exp3" onMouseOver="ShowCont('Exp3','info',event)"
+               onMouseOut="HideCont('Exp3',event)">
+                <img NAME="Exp3" src="{% static 'transp.gif' %}" border=0 width=150
+                height=150></A>
+        </DIV>
+    </DIV>
+        </td>
+    </tr>
+
+	<th><font size="+2">Ertrag</font></th></th>
+    <td>
+<DIV ID="PayoffSelf_cont"  style="position: relative; height: 150px; width: 150px;">
+        <DIV ID="PayoffSelf_txt">
+            <TABLE border= 2>
+                <TD ID="PayoffSelf_td" align=center valign=center width=150 height=150
+                    class="actTD"><font size="+2">{{payoff_agent}}</font>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="PayoffSelf_box"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 150px; width: 150px; clip: rect(0px 150px 150px 0px); z-index: 1;">
+            <TABLE>
+                <TD ID="PayoffSelf_tdbox" align=center valign=center width=150 height=150><img
+                        src="{% static 'Black_screen.jpg' %}" width="150" height="150"/>
+                </TD>
+            </TABLE>
+        </DIV>
+        <DIV ID="PayoffSelf_img"
+             STYLE="position: absolute; left: 0px; top: 0px; height: 145px; width: 145px; z-index: 1;">
+            <A HREF="javascript:void(0);" NAME="Exp2" onMouseOver="ShowCont('PayoffSelf','info',event)"
+               onMouseOut="HideCont('PayoffSelf',event)">
+                <img NAME="PayoffSelf" src="{% static 'transp.gif' %}" border=0 width=150
+                height=150></A>
+        </DIV>
+    </DIV>
+        </td>
+        <td>
+
+    <div id="line1">
+        <table border="2" width="150" height="150" >
+        </table>
+    </div>
+        </td>
+        <td>
+
+    <div id="line2">
+        <table border="2" width="150" height="150" >
+        </table>
+    </div>
+        </td>
+        <td>
+
+    <div id="line3">
+        <table border="2" width="150" height="150" >
+        </table>
+    </div>
+        </td>
+    </tr>
+</table>
+
+    <p>
+        <center>
+           <font size="+1">
+               {% formfield player.crop_choice label="Ich will anbauen:" %}
+           </font>
+        <p>
+    {% next_button %}
+        </p>
+       </center>
+
+
+ <FORM name="mlwebform" onSubmit="return checkForm(this)" method="POST" action="gen_cell.php">
+ <INPUT type=hidden name="procdata" value="">
+{% endblock %}
+
+
+
+{% block scripts %}
+
+<script language=javascript src="/static/mlweb_simple.js"></SCRIPT>
+
+{% endblock %}

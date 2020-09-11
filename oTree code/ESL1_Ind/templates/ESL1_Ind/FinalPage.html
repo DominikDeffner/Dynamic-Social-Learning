@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+
+
+{% block content %}
+
+        <br>
+        <br>
+        <br>
+
+        <center>
+
+         <font size="+3">Die Studie ist nun beendet, vielen Dank für Ihre Teilnahme!
+             <br>
+             Sie haben insgesamt {{participant.payoff}} gesammelt!
+             <br>
+
+         Bitte warten Sie auf Ihre Versuchsleiterin/Ihren Versuchsleiter. </font>
+
+    </center>
+        <br>
+        <br>
+        <br>
+    <center>
+        <img src="{% static 'logo.JPG' %}" width="1000" height="350">
+
+    <p>
+        <br>
+        <br>
+        <br>
+
+
+        {% next_button %}
+    <p>
+    </center>
+
+{% endblock %}

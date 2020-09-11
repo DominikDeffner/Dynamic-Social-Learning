@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %}
+Runde {{ subsession.round_number }} von {{ Constants.num_rounds }}
+<br>
+
+Sie befinden sich derzeit in Region {{group.id_in_subsession}}
+{% endblock %}
+
+
+{% block content %}
+
+{% if group.id_in_subsession == 1 %}
+<body style="background-color: rgb(204, 255, 204);">
+{% endif %}
+
+{% if group.id_in_subsession == 2 %}
+<body style="background-color: rgb(204, 255, 255);">
+{% endif %}
+
+   <center>
+     <font size="+1">
+        {% formfield player.crop_choice label="Ich will anbauen:" %}
+     </font>
+   </center>
+
+<center>
+
+    <img src="{% static image1 %}"/ hspace=15 vspace=5 width="200" height="200"/>
+    <img src="{% static image2 %}"/ hspace=15 vspace=5 width="200" height="200">
+    <img src="{% static image3 %}"/ hspace=15 vspace=5 width="200" height="200">
+    <img src="{% static image4 %}"/ hspace=15 vspace=5 width="200" height="200">
+
+
+    <p>
+    {% next_button %}
+    </p>
+</center>
+
+{% endblock %}

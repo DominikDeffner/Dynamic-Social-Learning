@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %} Wechsel der Region {% endblock %}
+
+{% block content %}
+        <br>
+        <br>
+
+    <p>
+     <font size="+2">Bis jetzt befanden Sie sich in Region {{group.id_in_subsession}}.</font>
+        <br>
+        <br>
+     <font size="+2">Sie haben bisher insgesamt {{participant.payoff}} gesammelt.</font>
+
+
+        <br>
+        <br>
+     <font size="+2">Ab nächster Runde sind Sie in der anderen Region auf der anderen Seite des Flusses.
+        Aufgrund unterschiedlicher Umweltbedingungen kann es sein, dass dort eine andere Pflanze
+         optimal ist.</font>
+
+
+    </p>
+        <br>
+
+    <p>
+<center>
+
+    <img src="{% static "Environments.jpg" %}"/ hspace=0 vspace=5 width="600" height="450"/>
+
+    <br>
+    <br>
+
+    {% next_button %}
+</center>
+    </p>
+
+{% endblock %}
