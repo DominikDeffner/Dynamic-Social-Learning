@@ -5,7 +5,10 @@ This repository contains anonymized experimental data and all scripts to reprodu
 ***Deffner, D., Kleinow, V. & McElreath, R. (submitted to Royal Society Open Science): Dynamic Social Learning in Temporally and Spatially Variable Environments***
 
 
-https://doi.org/10.5281/zenodo.4034787
+
+
+https://zenodo.org/badge/DOI/10.5281/zenodo.4034787.svg
+
 
 
 **Experimental software**
