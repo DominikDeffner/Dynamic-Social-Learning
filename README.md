@@ -7,7 +7,7 @@ This repository contains anonymized experimental data and all scripts to reprodu
 
 
 
-https://zenodo.org/badge/DOI/10.5281/zenodo.4034787.svg
+  https://doi.org/10.5281/zenodo.4034787
 
 
 
