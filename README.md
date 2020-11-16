@@ -2,7 +2,7 @@
 
 This repository contains anonymized experimental data and all scripts to reproduce results and plots in 
 
-***Deffner, D., Kleinow, V. & McElreath, R. (submitted to Royal Society Open Science): Dynamic Social Learning in Temporally and Spatially Variable Environments***
+***Deffner, D., Kleinow, V. & McElreath, R. (in press at Royal Society Open Science): Dynamic Social Learning in Temporally and Spatially Variable Environments***
 
 
 
