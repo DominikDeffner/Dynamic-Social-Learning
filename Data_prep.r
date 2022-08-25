@@ -104,7 +104,7 @@ d$n4[is.na(d$n4)] <- 0
   d$Experience3_ms <- 0
   
   for (i in 1:nrow(d)) {
-    if (Clean.protrace.list[[i]] != 0){
+    if (mode(Clean.protrace.list[[i]]) != "numeric"){
       d$ChoiceSelf_ms[i]     <- dviewed.proctrace(Clean.protrace.list[[i]], "CropSelf")
       d$Payoff_ms[i]         <- dviewed.proctrace(Clean.protrace.list[[i]], "PayoffSelf")
       d$ExperienceSelf_ms[i] <- dviewed.proctrace(Clean.protrace.list[[i]], "ExpSelf")
