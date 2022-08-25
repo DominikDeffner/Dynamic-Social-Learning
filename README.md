@@ -22,6 +22,7 @@ The folder "oTree code" contains full experimental software needed to run the ex
    "ChoiceSelf" is the option an individual chose in a given round, "ExperienceSelf" gives their own level of experience and       "Payoff" gives the number of points they collected. "Choice1","Choice2", "Choice3" and "Experience1", "Experience2", "Experience3" indicate the social information available from first, second and third (from left to right) group member, respectively. "group_id" says which region an individual is currently in, "Optimal" givs the currently optimal option, "PayoffBetter" the expected payoff of the optimal crop (other 3 points less) and "Hard" says whether phase was relatively difficult (SD = 3) or easy (SD = 1.5). "MouseTracking", finally, records all occasions when individuals entered and left a given box. 
 - "data_Ind.csv" in the "Data" folder contains data from individual learning control condition. Variable names are equivalent. 
 - "Data_prep.r" loads the data and prepares them for the stan models. The final product is a list with all relevant variables as required by stan. Processing the mouse tracking data might take a couple of minutes.
+- data_cleaned contains the resulting list that can be fed directly into stan models
 
  **Stan models**
  - "EWA_baseline_multilevel.stan": Baseline Multilevel Experience-weighted attraction model. This model code is heavily commented with detailed description of all steps. If you want to delve deeper into the modeling, you should probably start here.
