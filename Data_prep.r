@@ -7,7 +7,7 @@ library(tidyverse)
 library(rethinking)
 
 #Load data
-d <- read.csv("data_csv")
+d <- read.csv("data.csv")
 
 #Variable that indicates whether choice in round was "correct"
 d$Correct <- ifelse(d$ChoiceSelf == d$Optimal, 1, 0)
